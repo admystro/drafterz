@@ -29,3 +29,9 @@ yarn-error.log*
 *.tmp
 *.temp
 .cache/
+
+# video
+*.mp4
+*.mov
+*.avi
+*.mkv
