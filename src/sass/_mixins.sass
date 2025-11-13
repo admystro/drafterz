@@ -1,0 +1,19 @@
+// для десктопов по умолчанию)
+=desktop
+  @media (min-width: 992px)
+    @content
+
+// для больших десктопов
+=desktop-lg
+  @media (min-width: 1200px)
+    @content
+
+// для планшетов
+=tablet
+  @media (max-width: 991px) and (min-width: 768px)
+    @content
+
+//  для мобильных устройств
+=mobile
+  @media (max-width: 767px)
+    @content
