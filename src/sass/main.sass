@@ -37,6 +37,18 @@ body
   left: 0
   width: 100%
   z-index: 100
+
+  &__line
+    position: absolute
+    content: ''
+    top: 0
+    left: 0
+    right: 0
+    height: 2px
+    background: $border-color
+    z-index: -1
+    transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0.1s
+
   &__logo
     width: 170px
 
@@ -45,3 +57,14 @@ body
     text-decoration: none
     padding: 0 20px
     font-size: $font-size-lg
+    transition: all 0.3s ease
+
+    &:hover
+      color: $secondary-color
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)
+
+  &:hover
+    cursor: pointer
+    .navigation__line
+      transform: translateY(110px)
+      transition-delay: 0s
