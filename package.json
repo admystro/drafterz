@@ -1,8 +1,11 @@
 {
-  "name": "blank",
+  "name": "drafterz",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp",
+    "build": "gulp build",
+    "deploy": "npm run build && gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,6 +19,7 @@
     "gulp-cli": "^3.1.0",
     "gulp-rename": "^2.1.0",
     "gulp-sass": "^6.0.1",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "gh-pages": "^6.2.0"
   }
 }
