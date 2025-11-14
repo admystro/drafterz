@@ -34,23 +34,23 @@ gulp.task("styles", function () {
 
 
 gulp.task('build', function(done) {
-
+ 
   gulp.src("src/*.html").pipe(gulp.dest("dist"));
   
-
+ 
   gulp.src("src/css/**/*.css").pipe(gulp.dest("dist/css"));
   
 
   gulp.src("src/js/**/*.js").pipe(gulp.dest("dist/js"));
   
 
-  gulp.src("src/img/**/*").pipe(gulp.dest("dist/img"));
+  gulp.src("src/img/**/*", {encoding: false}).pipe(gulp.dest("dist/img"));
+  
+
+  gulp.src("src/video/**/*", {encoding: false}).pipe(gulp.dest("dist/video"));
   
  
-  gulp.src("src/video/**/*").pipe(gulp.dest("dist/video"));
-  
- 
-  gulp.src("src/fonts/**/*").pipe(gulp.dest("dist/fonts"));
+  gulp.src("src/icon/**/*", {encoding: false}).pipe(gulp.dest("dist/icon"));
   
   done();
 });
