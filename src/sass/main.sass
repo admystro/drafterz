@@ -2,6 +2,7 @@
 @use 'fonts' as *
 @use 'variables' as *
 @use 'mixins' as *
+@use 'animations' as *
 
 body
   background: $primary-color
@@ -10,6 +11,10 @@ body
 .video-bg
   width: 100%
   height: 100vh
+  padding-bottom: 60px
+
+  @media (max-width: 992px)
+    padding-bottom: 30px
 
   &::before
     content: ''
@@ -19,7 +24,7 @@ body
     width: 100%
     height: 100%
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3))
-    z-index: 1
+    z-index: -1
 
   &__showreel
     position: absolute
@@ -28,15 +33,32 @@ body
     width: 100%
     height: 100%
     object-fit: cover
+    z-index: -2
 
-.navigation
+  &__title
+    width: fit-content
+    animation: tracking-in-expand 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 1s both
+
+.header
   background: transparent
   padding: 30px 0
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  z-index: 100
+
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    right: 6.5%
+    top: 50%
+    transform: translateY(-50%)
+    width: 30px
+    height: 24px
+    background: url(../icon/menu.svg) no-repeat center/cover
+    transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1) 0.1s
+    display: none
+
+    @media (min-width: 992px)
+      display: block
 
   &__line
     position: absolute
@@ -47,24 +69,62 @@ body
     height: 2px
     background: $border-color
     z-index: -1
+    transform: translateY(0)
     transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0.1s
 
   &__logo
     width: 170px
 
-  &__link
-    color: $secondary-color
-    text-decoration: none
-    padding: 0 20px
-    font-size: $font-size-lg
-    transition: all 0.3s ease
+    @media (max-width: 768px)
+      width: 120px
 
+  .navigate
+    overflow: hidden
+    height: 60px
+    position: relative
+
+    .navigate-list
+
+      transform: translateY(40px)
+      opacity: 0.3
+      transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s
+
+      &__link
+        color: $secondary-color
+        text-decoration: none
+        padding: 0 20px
+        font-size: $font-size-lg
+        transition: all 0.3s ease
+
+        &:hover
+          color: $secondary-color
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)
+
+  &__toggler
+    display: block
+    width: 30px
+    height: 24px
+    background: url(../icon/menu.svg) no-repeat center/cover
+  &__offcanvas
+    background: #000
+
+    .offcanvas-header
+
+      &__logo
+        width: 40px
+
+  @media (min-width: 992px)
     &:hover
-      color: $secondary-color
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)
+      cursor: pointer
 
-  &:hover
-    cursor: pointer
-    .navigation__line
-      transform: translateY(110px)
-      transition-delay: 0s
+      .header__line
+        transform: translateY(119px)
+        transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1) 0s
+
+      .navigate-list
+        transform: translateY(0)
+        opacity: 1
+        transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s
+
+      &::before
+        transform: translateY(-50%) translateX(500%)
