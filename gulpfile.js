@@ -51,6 +51,8 @@ gulp.task('build', function(done) {
   
  
   gulp.src("src/icon/**/*", {encoding: false}).pipe(gulp.dest("dist/icon"));
+
+  gulp.src("src/fonts/**/*", {encoding: false}).pipe(gulp.dest("dist/fonts"));
   
   done();
 });

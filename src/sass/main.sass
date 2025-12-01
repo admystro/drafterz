@@ -112,10 +112,13 @@ body
         font-size: $font-size-lg
         transition: all 0.3s ease
         font-family: $family-gyre
+        
 
         &:hover
           color: $secondary-color
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4)
+      &__link--active
+        text-decoration: underline
 
   &__toggler
     display: block
@@ -128,6 +131,9 @@ body
 
     a
       font-family: $family-gyre
+
+    a.navigate-list__link--active
+        text-decoration: underline
 
     .offcanvas-header
       display: flex
