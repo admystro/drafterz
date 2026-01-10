@@ -1,0 +1,164 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Juliet & Romeo",
+      "year": 2025,
+      "poster": "img/posters/1_juliet_and_romeo.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt32161972/",
+      "stack": "Clean-up works"
+    },
+    {
+      "id": 2,
+      "title": "The Bayou",
+      "year": 2025,
+      "poster": "img/posters/2_the_bayou.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt14208870/",
+      "stack": "Clean-up works"
+    },
+    {
+      "id": 3,
+      "title": "God's Soldier",
+      "year": 2025,
+      "poster": "img/posters/3_gods_soldier.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt5766694/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 4,
+      "title": "Arthur's Whisky",
+      "year": 2024,
+      "poster": "img/posters/4_arthurs_whisky.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt9054670/",
+      "stack": "Compositing works"
+    },
+    {
+      "id": 5,
+      "title": "Take Cover",
+      "year": 2024,
+      "poster": "img/posters/5_take_cover.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt27489681/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 6,
+      "title": "Sardaar Ji 3",
+      "year": 2025,
+      "poster": "img/posters/6_sardaar_ji_3.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt33354845/",
+      "stack": "Tracking, Setups, BG renders"
+    },
+    {
+      "id": 7,
+      "title": "Guna Guna Istri Muda",
+      "year": 2024,
+      "poster": "img/posters/7_guna_guna_istri_muda.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt28363725/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 8,
+      "title": "Modi: Three Days on the Wing of Madness",
+      "year": 2024,
+      "poster": "img/posters/8_modi.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt21867970/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 9,
+      "title": "The Cut",
+      "year": 2024,
+      "poster": "img/posters/9_the_cut.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt22687410/",
+      "stack": "Rotoscoping, Compositing works"
+    },
+    {
+      "id": 10,
+      "title": "The Ark",
+      "year": 2023,
+      "poster": "img/posters/10_the_ark.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt11547196/",
+      "stack": "Keying, Compositing works"
+    },
+    {
+      "id": 11,
+      "title": "Jingle Bell Heist",
+      "year": 2024,
+      "poster": "img/posters/11_jingle_bell_heist.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt24852126/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 12,
+      "title": "Lluvia",
+      "year": 2023,
+      "poster": "img/posters/12_lluvia.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt29310845/",
+      "stack": "Compositing works"
+    },
+    {
+      "id": 13,
+      "title": "The Wasp",
+      "year": 2024,
+      "poster": "img/posters/13_the_wasp.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt13651794/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 14,
+      "title": "Shakuntala Devi",
+      "year": 2020,
+      "poster": "img/posters/14_shakuntala_devi.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt11380780/",
+      "stack": "Clean-up, Compositing works, Texturing"
+    },
+    {
+      "id": 15,
+      "title": "Fallen",
+      "year": 2024,
+      "poster": "img/posters/15_fallen.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt21221876/",
+      "stack": "Clean-up, Compositing works, Matte painting"
+    },
+    {
+      "id": 16,
+      "title": "Mond",
+      "year": 2024,
+      "poster": "img/posters/16_mond.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt31746175/",
+      "stack": "Clean-up, Compositing works, Matte painting"
+    },
+    {
+      "id": 17,
+      "title": "Giant",
+      "year": 2025,
+      "poster": "img/posters/17_giant.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt32675661/",
+      "stack": "Clean-up, Tracking, Compositing works"
+    },
+    {
+      "id": 18,
+      "title": "My Driver & I",
+      "year": 2024,
+      "poster": "img/posters/18_my_driver.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt27517366/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 19,
+      "title": "Palestine 36",
+      "year": 2025,
+      "poster": "img/posters/19_palestine_36.webp",
+      "resourceUrl": "https://www.imdb.com/title/tt32544256/",
+      "stack": "Clean-up, Compositing works"
+    },
+    {
+      "id": 20,
+      "title": "The Pearl Comb",
+      "year": 2025,
+      "poster": "img/posters/20_the_pearl_comb.jpg",
+      "resourceUrl": "https://www.imdb.com/title/tt33345832/",
+      "stack": "Clean-up, Compositing works"
+    }
+  ]
+}
