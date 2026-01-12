@@ -1,23 +1,10 @@
-// video bg
-const video = document.querySelector(".video-bg__showreel");
-const isMobile = window.innerWidth < 992;
-
-if (isMobile) {
-  video.src = "./video/showreel_720_min.mp4";
-} else {
-  video.src = "./video/showreel_1920_min.mp4";
-}
-video.load();
-// video bg end
-
-// data
 const posters = [
   {
     id: 1,
     title: "Juliet & Romeo",
     year: 2025,
     poster: "./img/posters/1_juliet_and_romeo.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt26597666/",
+    resourceUrl: "https://www.imdb.com/title/tt32161972/",
     stack: "Clean-up works",
   },
   {
@@ -25,7 +12,7 @@ const posters = [
     title: "The Bayou",
     year: 2025,
     poster: "./img/posters/2_the_bayou.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt29343289/",
+    resourceUrl: "https://www.imdb.com/title/tt14208870/",
     stack: "Clean-up works",
   },
   {
@@ -41,7 +28,7 @@ const posters = [
     title: "Arthur's Whisky",
     year: 2024,
     poster: "./img/posters/4_arthurs_whisky.webp",
-    resourceUrl: "https://www.imdb.com/title/tt27158093/",
+    resourceUrl: "https://www.imdb.com/title/tt9054670/",
     stack: "Compositing works",
   },
   {
@@ -49,7 +36,7 @@ const posters = [
     title: "Take Cover",
     year: 2024,
     poster: "./img/posters/5_take_cover.webp",
-    resourceUrl: "https://www.imdb.com/title/tt28129054/",
+    resourceUrl: "https://www.imdb.com/title/tt27489681/",
     stack: "Clean-up, Compositing works",
   },
   {
@@ -57,7 +44,7 @@ const posters = [
     title: "Sardaar Ji 3",
     year: 2025,
     poster: "./img/posters/6_sardaar_ji_3.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt33022037/",
+    resourceUrl: "https://www.imdb.com/title/tt33354845/",
     stack: "Tracking, Setups, BG renders",
   },
   {
@@ -73,7 +60,7 @@ const posters = [
     title: "Modi: Three Days on the Wing of Madness",
     year: 2024,
     poster: "./img/posters/8_modi.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt5519506/",
+    resourceUrl: "https://www.imdb.com/title/tt21867970/",
     stack: "Clean-up, Compositing works",
   },
   {
@@ -81,7 +68,7 @@ const posters = [
     title: "The Cut",
     year: 2024,
     poster: "./img/posters/9_the_cut.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt26697087/",
+    resourceUrl: "https://www.imdb.com/title/tt22687410/",
     stack: "Rotoscoping, Compositing works",
   },
   {
@@ -89,7 +76,7 @@ const posters = [
     title: "The Ark",
     year: 2023,
     poster: "./img/posters/10_the_ark.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt17371078/",
+    resourceUrl: "https://www.imdb.com/title/tt11547196/",
     stack: "Keying, Compositing works",
   },
   {
@@ -105,7 +92,7 @@ const posters = [
     title: "Lluvia",
     year: 2023,
     poster: "./img/posters/12_lluvia.webp",
-    resourceUrl: "https://www.imdb.com/title/tt10345346/",
+    resourceUrl: "https://www.imdb.com/title/tt29310845/",
     stack: "Compositing works",
   },
   {
@@ -113,15 +100,15 @@ const posters = [
     title: "The Wasp",
     year: 2024,
     poster: "./img/posters/13_the_wasp.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt21958136/",
+    resourceUrl: "https://www.imdb.com/title/tt13651794/",
     stack: "Clean-up, Compositing works",
   },
   {
     id: 14,
     title: "Shakuntala Devi",
     year: 2020,
-    poster: "./img/posters/14_devi.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt10964468/",
+    poster: "./img/posters/14_shakuntala_devi.jpg",
+    resourceUrl: "https://www.imdb.com/title/tt11380780/",
     stack: "Clean-up, Compositing works, Texturing",
   },
   {
@@ -129,7 +116,7 @@ const posters = [
     title: "Fallen",
     year: 2024,
     poster: "./img/posters/15_fallen.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt22776032/",
+    resourceUrl: "https://www.imdb.com/title/tt21221876/",
     stack: "Clean-up, Compositing works, Matte painting",
   },
   {
@@ -145,7 +132,7 @@ const posters = [
     title: "Giant",
     year: 2025,
     poster: "./img/posters/17_giant.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt26452616/",
+    resourceUrl: "https://www.imdb.com/title/tt32675661/",
     stack: "Clean-up, Tracking, Compositing works",
   },
   {
@@ -153,7 +140,7 @@ const posters = [
     title: "My Driver & I",
     year: 2024,
     poster: "./img/posters/18_my_driver.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt5328818/",
+    resourceUrl: "https://www.imdb.com/title/tt27517366/",
     stack: "Clean-up, Compositing works",
   },
   {
@@ -161,7 +148,7 @@ const posters = [
     title: "Palestine 36",
     year: 2025,
     poster: "./img/posters/19_palestine_36.webp",
-    resourceUrl: "https://www.imdb.com/title/tt29271622/",
+    resourceUrl: "https://www.imdb.com/title/tt32544256/",
     stack: "Clean-up, Compositing works",
   },
   {
@@ -169,72 +156,7 @@ const posters = [
     title: "The Pearl Comb",
     year: 2025,
     poster: "./img/posters/20_the_pearl_comb.jpg",
-    resourceUrl: "https://www.imdb.com/title/tt33019528/",
+    resourceUrl: "https://www.imdb.com/title/tt33345832/",
     stack: "Clean-up, Compositing works",
   },
 ];
-
-// data end
-
-// slider
-const sliderWrap = document.querySelector(".slider__wrap");
-const sliderCont = document.querySelector(".slider__cont");
-const nextBtn = document.querySelector(".slider__btn-next");
-const prevBtn = document.querySelector(".slider__btn-prev");
-let sliderStep = sliderWrap.offsetWidth;
-let sliderPosition = 0;
-
-posters.forEach((element) => {
-  sliderCont.insertAdjacentHTML(
-    "beforeend",
-    `
-    <div class="slider__item">
-                  <a
-                    href="${element.resourceUrl}"
-                    target="_blank"
-                    class="slider__link"
-                  >
-                    <img src="${element.poster}" alt="" />
-                    <div class="slider__descr pt-2 text-center">
-                      <h4>${element.title}</h4>
-                      <p>${element.year}</p>
-                      <p>${element.stack}</p>
-                    </div>
-                  </a>
-                </div>
-    `
-  );
-});
-
-function getMaxPosition() {
-  const cards = sliderCont.children;
-  const totalCards = cards.length;
-  const cardWidth = cards[0].offsetWidth;
-
-  const gap = parseFloat(getComputedStyle(sliderCont).gap) || 0;
-
-  const totalWidth = cardWidth * totalCards + gap * (totalCards - 1);
-
-  return totalWidth - sliderWrap.offsetWidth;
-}
-
-nextBtn.addEventListener("click", () => {
-  const maxPosition = getMaxPosition();
-
-  sliderPosition += sliderStep;
-  if (sliderPosition >= maxPosition) {
-    sliderPosition = 0;
-  }
-  sliderCont.style.transform = `translateX(-${sliderPosition}px)`;
-});
-
-prevBtn.addEventListener("click", () => {
-  if (sliderPosition == 0) {
-    return;
-  }
-
-  sliderPosition -= sliderStep;
-  sliderCont.style.transform = `translateX(-${sliderPosition}px)`;
-});
-
-// slider end
