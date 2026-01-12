@@ -196,7 +196,7 @@ posters.forEach((element) => {
                   >
                     <img src="${element.poster}" alt="" />
                     <div class="slider__descr pt-2 text-center">
-                      <h4>${element.title}</h4>
+                      <h5>${element.title}</h5>
                       <p>${element.year}</p>
                       <p>${element.stack}</p>
                     </div>
