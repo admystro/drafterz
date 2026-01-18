@@ -8,6 +8,15 @@ body
   background: $primary-color
   color: $secondary-color
   font-family: $family-base
+.hp
+  inset: 0
+  background: #dac20975
+  z-index: 1000
+  display: none
+
+  img
+    width: 300px
+
 
 .video-bg
   width: 100%
@@ -178,12 +187,12 @@ body
 
 // main start
 
-main
+
 // slder
 .slider
 
   &__cont
-    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+    transition: transform 0.6s
     width: auto
     align-items: stretch
 
@@ -207,20 +216,20 @@ main
     @media (max-width: 575px)
       right: 0px
   &__item
-    flex: 0 0 calc((100% - 72px) / 4)
+    width: 312px
     min-width: 0
 
     flex-shrink: 0
     overflow: hidden
 
     @media (max-width: 1199px)
-      flex: 0 0 calc((100% - 48px) / 3)
+      width: 250px
 
     @media (max-width: 990px)
-      flex: 0 0 calc((100% - 24px) / 2)
+      width: 200px
 
     @media (max-width: 575px)
-      flex: 0 0 100%
+      width: 350px
 
     img
       width: 100%
