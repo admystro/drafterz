@@ -1,3 +1,4 @@
+
 // video bg
 const video = document.querySelector(".video-bg__showreel");
 const isMobile = window.innerWidth < 992;
@@ -177,64 +178,96 @@ const posters = [
 // data end
 
 // slider
+let offset = 0;
+const gap = 24;
+
 const sliderWrap = document.querySelector(".slider__wrap");
 const sliderCont = document.querySelector(".slider__cont");
 const nextBtn = document.querySelector(".slider__btn-next");
 const prevBtn = document.querySelector(".slider__btn-prev");
-let sliderStep = sliderWrap.offsetWidth;
-let sliderPosition = 0;
+
 
 posters.forEach((element) => {
   sliderCont.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="slider__item">
-                  <a
-                    href="${element.resourceUrl}"
-                    target="_blank"
-                    class="slider__link"
-                  >
-                    <img src="${element.poster}" alt="" />
-                    <div class="slider__descr pt-2 text-center">
-                      <h5>${element.title}</h5>
-                      <p>${element.year}</p>
-                      <p>${element.stack}</p>
-                    </div>
-                  </a>
-                </div>
+    <article class="slider__item">
+      <a href="${element.resourceUrl}" target="_blank" class="slider__link">
+        <img src="${element.poster}" alt="" />
+        <div class="slider__descr pt-2 text-center">
+          <h5>${element.title}</h5>
+          <p>${element.year}</p>
+          <p>${element.stack}</p>
+        </div>
+      </a>
+    </article>
     `
   );
 });
 
-function getMaxPosition() {
-  const cards = sliderCont.children;
-  const totalCards = cards.length;
-  const cardWidth = cards[0].offsetWidth;
+const slides = document.querySelectorAll(".slider__item");
+let slideWidthValue = 0;
 
-  const gap = parseFloat(getComputedStyle(sliderCont).gap) || 0;
 
-  const totalWidth = cardWidth * totalCards + gap * (totalCards - 1);
+function updateSlideWidth() {
+  const containerWidth = sliderWrap.clientWidth;
 
-  return totalWidth - sliderWrap.offsetWidth;
+ 
+  let slidesToShow = 4;
+  if (window.innerWidth < 575) slidesToShow = 1;
+  else if (window.innerWidth < 990) slidesToShow = 2;
+  else if (window.innerWidth < 1199) slidesToShow = 3;
+
+
+  slideWidthValue = containerWidth / slidesToShow;
+  if (slidesToShow > 1) slideWidthValue -= gap;
+
+  slides.forEach((slide) => {
+    slide.style.width = `${slideWidthValue}px`;
+  });
+
+  sliderCont.style.width = (slideWidthValue + gap) * slides.length + "px";
+
+ 
+  offset = 0;
+  sliderCont.style.transform = `translateX(-${offset}px)`;
+  showArrow();
 }
 
-nextBtn.addEventListener("click", () => {
-  const maxPosition = getMaxPosition();
 
-  sliderPosition += sliderStep;
-  if (sliderPosition >= maxPosition) {
-    sliderPosition = 0;
-  }
-  sliderCont.style.transform = `translateX(-${sliderPosition}px)`;
+function showArrow() {
+  let slidesToShow = 4;
+  if (window.innerWidth < 575) slidesToShow = 1;
+  else if (window.innerWidth < 990) slidesToShow = 2;
+  else if (window.innerWidth < 1199) slidesToShow = 3;
+
+  const maxOffset = (slideWidthValue + gap) * (slides.length - slidesToShow);
+  prevBtn.hidden = offset <= 0;
+  nextBtn.hidden = offset >= maxOffset;
+}
+
+
+nextBtn.addEventListener("click", () => {
+  let slidesToShow =
+    window.innerWidth < 575 ? 1 :
+    window.innerWidth < 990 ? 2 :
+    window.innerWidth < 1199 ? 3 : 4;
+
+  const maxOffset = (slideWidthValue + gap) * (slides.length - slidesToShow);
+  offset = Math.min(offset + slideWidthValue + gap, maxOffset);
+  sliderCont.style.transform = `translateX(-${offset}px)`;
+  showArrow();
 });
 
 prevBtn.addEventListener("click", () => {
-  if (sliderPosition == 0) {
-    return;
-  }
-
-  sliderPosition -= sliderStep;
-  sliderCont.style.transform = `translateX(-${sliderPosition}px)`;
+  offset = Math.max(offset - (slideWidthValue + gap), 0);
+  sliderCont.style.transform = `translateX(-${offset}px)`;
+  showArrow();
 });
 
-// slider end
+
+window.addEventListener("resize", updateSlideWidth);
+
+
+updateSlideWidth();
+
