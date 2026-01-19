@@ -8,15 +8,6 @@ body
   background: $primary-color
   color: $secondary-color
   font-family: $family-base
-.hp
-  inset: 0
-  background: #dac20975
-  z-index: 1000
-  display: none
-
-  img
-    width: 300px
-
 
 .video-bg
   width: 100%
@@ -187,7 +178,6 @@ body
 
 // main start
 
-
 // slder
 .slider
 
@@ -206,62 +196,67 @@ body
 
   &__btn-prev
     left: -25px
-    transform: translateY(-50%) rotate(180deg)
+    transform: translateY(-150%) rotate(180deg)
+
+    @media (max-width: 999px)
+      transform: translateY(-50%) rotate(180deg)
     @media (max-width: 575px)
+
       left: 0px
 
   &__btn-next
     right: -25px
-    transform: translateY(-50%)
+    transform: translateY(-150%)
+    @media (max-width: 999px)
+      transform: translateY(-50%)
     @media (max-width: 575px)
       right: 0px
   &__item
     width: 312px
     min-width: 0
-
     flex-shrink: 0
     overflow: hidden
-
-    @media (max-width: 1199px)
-      width: 250px
-
-    @media (max-width: 990px)
-      width: 200px
-
-    @media (max-width: 575px)
-      width: 350px
 
     img
       width: 100%
       height: 500px
       display: block
 
-    @media (max-width: 575px)
+      @media (max-width: 768px)
+        height: auto
 
   &__link
     text-decoration: none
     color: $secondary-color
     &:hover
-      color: $accent-color
+      .slider__descr
+        transform: translateY(0)
     &:visited
       color: $secondary-color
+    @media (max-width: 990px)
 
   &__descr
     border: 1px solid #fff
     border-top: 0
+    inset: 0
+    transform: translateY(-110%)
+    transition: 0.3s
+    color: $secondary-color
+
+    @media (max-width: 990px)
+      transform: translateY(0)
+
 // slider end
 // team
 main
   .team
     width: 100%
-    
 
     a
       text-decoration: none
       color: $secondary-color
       &:hover
         color: $accent-color
-
 
 // team end
 // main end

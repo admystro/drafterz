@@ -1,4 +1,3 @@
-
 // video bg
 const video = document.querySelector(".video-bg__showreel");
 const isMobile = window.innerWidth < 992;
@@ -186,7 +185,6 @@ const sliderCont = document.querySelector(".slider__cont");
 const nextBtn = document.querySelector(".slider__btn-next");
 const prevBtn = document.querySelector(".slider__btn-prev");
 
-
 posters.forEach((element) => {
   sliderCont.insertAdjacentHTML(
     "beforeend",
@@ -194,46 +192,61 @@ posters.forEach((element) => {
     <article class="slider__item">
       <a href="${element.resourceUrl}" target="_blank" class="slider__link">
         <img src="${element.poster}" alt="" />
-        <div class="slider__descr pt-2 text-center">
-          <h5>${element.title}</h5>
-          <p>${element.year}</p>
-          <p>${element.stack}</p>
+        
+        <div class="overflow-hidden position-relative">
+          <div class="slider__descr pt-2 text-center postion-absolute">
+            <h5>${element.title}</h5>
+            <p>${element.year}</p>
+            <p>${element.stack}</p>
+          </div>
         </div>
       </a>
     </article>
-    `
+    `,
   );
 });
 
 const slides = document.querySelectorAll(".slider__item");
 let slideWidthValue = 0;
 
-
 function updateSlideWidth() {
   const containerWidth = sliderWrap.clientWidth;
 
- 
   let slidesToShow = 4;
-  if (window.innerWidth < 575) slidesToShow = 1;
-  else if (window.innerWidth < 990) slidesToShow = 2;
-  else if (window.innerWidth < 1199) slidesToShow = 3;
+  let currentGap = gap;
 
+  if (window.innerWidth < 768) {
+    slidesToShow = 1;
+    currentGap = 0;
+  } else if (window.innerWidth < 990) {
+    slidesToShow = 2;
+  } else if (window.innerWidth < 1199) {
+    slidesToShow = 3;
+  }
 
-  slideWidthValue = containerWidth / slidesToShow;
-  if (slidesToShow > 1) slideWidthValue -= gap;
+  if (slidesToShow === 1 && window.innerWidth < 768) {
+    const container = document.querySelector(".container");
+    const containerStyles = window.getComputedStyle(container);
+    const paddingLeft = parseFloat(containerStyles.paddingLeft);
+    const paddingRight = parseFloat(containerStyles.paddingRight);
+
+    slideWidthValue = containerWidth - paddingLeft - paddingRight;
+  } else {
+    slideWidthValue =
+      (containerWidth - currentGap * (slidesToShow - 1)) / slidesToShow;
+  }
 
   slides.forEach((slide) => {
     slide.style.width = `${slideWidthValue}px`;
   });
 
-  sliderCont.style.width = (slideWidthValue + gap) * slides.length + "px";
+  const totalGaps = slides.length > 1 ? (slides.length - 1) * currentGap : 0;
+  sliderCont.style.width = slideWidthValue * slides.length + totalGaps + "px";
 
- 
   offset = 0;
   sliderCont.style.transform = `translateX(-${offset}px)`;
   showArrow();
 }
-
 
 function showArrow() {
   let slidesToShow = 4;
@@ -246,12 +259,15 @@ function showArrow() {
   nextBtn.hidden = offset >= maxOffset;
 }
 
-
 nextBtn.addEventListener("click", () => {
   let slidesToShow =
-    window.innerWidth < 575 ? 1 :
-    window.innerWidth < 990 ? 2 :
-    window.innerWidth < 1199 ? 3 : 4;
+    window.innerWidth < 575
+      ? 1
+      : window.innerWidth < 990
+        ? 2
+        : window.innerWidth < 1199
+          ? 3
+          : 4;
 
   const maxOffset = (slideWidthValue + gap) * (slides.length - slidesToShow);
   offset = Math.min(offset + slideWidthValue + gap, maxOffset);
@@ -265,9 +281,6 @@ prevBtn.addEventListener("click", () => {
   showArrow();
 });
 
-
 window.addEventListener("resize", updateSlideWidth);
 
-
 updateSlideWidth();
-
