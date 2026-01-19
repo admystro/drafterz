@@ -63,9 +63,7 @@
     <section
       class="position-relative d-flex flex-column justify-content-between video-bg mb-5"
     >
-      <video autoplay muted loop playsinline class="video-bg__showreel">
-        <source src="./video/showreel_1920_min.mp4" type="video/mp4" />
-        <source src="./video/showreel_720_min.mp4" type="video/mp4" />
+      <video autoplay muted loop playsinline preload="auto" class="video-bg__showreel">
         Your browser does not support the video tag.
       </video>
       <header>
@@ -93,7 +91,6 @@
               class="offcanvas offcanvas-end d-lg-none header__offcanvas"
               tabindex="-1"
               id="offcanvasRight"
-              
             >
               <div class="offcanvas-header">
                 <div class="d-flex align-items-end justify-content-start">

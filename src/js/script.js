@@ -1,15 +1,36 @@
 // video bg
-const video = document.querySelector(".video-bg__showreel");
-const isMobile = window.innerWidth < 992;
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.querySelector(".video-bg__showreel");
 
-if (isMobile) {
-  video.src = "./video/showreel_720_min.mp4";
-} else {
-  video.src = "./video/showreel_1920_min.mp4";
-}
-video.load();
+  if (!video) return;
+
+  const isMobile = window.innerWidth < 992;
+
+  video.src = isMobile
+    ? "./video/showreel_720_min.mp4"
+    : "./video/showreel_1920_min.mp4";
+
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("muted", "");
+
+  video.load();
+
+  video.play().catch((err) => {
+    console.warn("First play blocked, retrying...", err);
+
+    setTimeout(() => {
+      video.muted = true;
+      video.play().catch((e) => {
+        console.warn("Second play blocked", e);
+      });
+    }, 500);
+  });
+});
 // video bg end
-
 // data
 const posters = [
   {
