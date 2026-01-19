@@ -213,18 +213,35 @@ function updateSlideWidth() {
   const containerWidth = sliderWrap.clientWidth;
 
   let slidesToShow = 4;
-  if (window.innerWidth < 575) slidesToShow = 1;
-  else if (window.innerWidth < 990) slidesToShow = 2;
-  else if (window.innerWidth < 1199) slidesToShow = 3;
+  let currentGap = gap;
 
-  slideWidthValue = containerWidth / slidesToShow;
-  if (slidesToShow > 1) slideWidthValue -= gap;
+  if (window.innerWidth < 768) {
+    slidesToShow = 1;
+    currentGap = 0;
+  } else if (window.innerWidth < 990) {
+    slidesToShow = 2;
+  } else if (window.innerWidth < 1199) {
+    slidesToShow = 3;
+  }
+
+  if (slidesToShow === 1 && window.innerWidth < 768) {
+    const container = document.querySelector(".container");
+    const containerStyles = window.getComputedStyle(container);
+    const paddingLeft = parseFloat(containerStyles.paddingLeft);
+    const paddingRight = parseFloat(containerStyles.paddingRight);
+
+    slideWidthValue = containerWidth - paddingLeft - paddingRight;
+  } else {
+    slideWidthValue =
+      (containerWidth - currentGap * (slidesToShow - 1)) / slidesToShow;
+  }
 
   slides.forEach((slide) => {
     slide.style.width = `${slideWidthValue}px`;
   });
 
-  sliderCont.style.width = (slideWidthValue + gap) * slides.length + "px";
+  const totalGaps = slides.length > 1 ? (slides.length - 1) * currentGap : 0;
+  sliderCont.style.width = slideWidthValue * slides.length + totalGaps + "px";
 
   offset = 0;
   sliderCont.style.transform = `translateX(-${offset}px)`;
