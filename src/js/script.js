@@ -191,10 +191,10 @@ posters.forEach((element) => {
     `
     <article class="slider__item">
       <a href="${element.resourceUrl}" target="_blank" class="slider__link">
-        <img src="${element.poster}" alt="" />
+        <img src="${element.poster}" alt="${element.title}" />
         
-        <div class="overflow-hidden position-relative">
-          <div class="slider__descr pt-2 text-center postion-absolute">
+        <div class="overflow-hidden">
+          <div class="slider__descr pt-2 text-center">
             <h5>${element.title}</h5>
             <p>${element.year}</p>
             <p>${element.stack}</p>
